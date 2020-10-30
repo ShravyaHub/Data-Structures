@@ -6,12 +6,16 @@ public class MyStack<K extends Comparable<K>> {
         this.myLinkedList = new MyLinkedList<K>();
     }
 
-    public void push(INode<K> newNode) {
+    public void push(INode newNode) {
         myLinkedList.add(newNode);
     }
 
-    public INode<K> peak() {
+    public INode peak() {
         return myLinkedList.head;
+    }
+
+    public INode pop() {
+        return myLinkedList.popFirst();
     }
 
     public void printStack() {
