@@ -5,9 +5,9 @@ public class MyLinkedListTest {
 
     @Test
     public void givenThreeNodes_WhenAddedToLinkedList_ShouldBeAddedToTop() {
-        MyNode<Integer> myFirstNode = new MyNode<>(70);
-        MyNode<Integer> mySecondNode = new MyNode<>(30);
-        MyNode<Integer> myThirdNode = new MyNode<>(56);
+        MyNode myFirstNode = new MyNode<>(70);
+        MyNode mySecondNode = new MyNode<>(30);
+        MyNode myThirdNode = new MyNode<>(56);
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.add(myFirstNode);
         myLinkedList.add(mySecondNode);
@@ -19,9 +19,9 @@ public class MyLinkedListTest {
 
     @Test
     public void givenThreeNodes_WhenAppendedToLinkedList_ShouldBeAddedToLast() {
-        MyNode<Integer> myFirstNode = new MyNode<>(70);
-        MyNode<Integer> mySecondNode = new MyNode<>(30);
-        MyNode<Integer> myThirdNode = new MyNode<>(56);
+        MyNode myFirstNode = new MyNode<>(70);
+        MyNode mySecondNode = new MyNode<>(30);
+        MyNode myThirdNode = new MyNode<>(56);
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.add(myFirstNode);
         myLinkedList.append(mySecondNode);
@@ -33,9 +33,9 @@ public class MyLinkedListTest {
 
     @Test
     public void givenThreeNodes_WhenInsertingSecondToLinkedList_ShouldReturnTrue() {
-        MyNode<Integer> myFirstNode = new MyNode<>(56);
-        MyNode<Integer> mySecondNode = new MyNode<>(30);
-        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyNode myFirstNode = new MyNode<>(56);
+        MyNode mySecondNode = new MyNode<>(30);
+        MyNode myThirdNode = new MyNode<>(70);
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.add(myFirstNode);
         myLinkedList.append(myThirdNode);
@@ -47,9 +47,9 @@ public class MyLinkedListTest {
 
     @Test
     public void givenThreeNodes_WhenPoppedFirstNodeInLinkedList_ShouldReturnTrue() {
-        MyNode<Integer> myFirstNode = new MyNode<>(56);
-        MyNode<Integer> mySecondNode = new MyNode<>(30);
-        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyNode myFirstNode = new MyNode<>(56);
+        MyNode mySecondNode = new MyNode<>(30);
+        MyNode myThirdNode = new MyNode<>(70);
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.add(myFirstNode);
         myLinkedList.append(myThirdNode);
@@ -63,9 +63,9 @@ public class MyLinkedListTest {
 
     @Test
     public void givenThreeNodes_WhenPoppedLastNodeInLinkedList_ShouldReturnTrue() {
-        MyNode<Integer> myFirstNode = new MyNode<>(56);
-        MyNode<Integer> mySecondNode = new MyNode<>(30);
-        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyNode myFirstNode = new MyNode<>(56);
+        MyNode mySecondNode = new MyNode<>(30);
+        MyNode myThirdNode = new MyNode<>(70);
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.add(myFirstNode);
         myLinkedList.append(myThirdNode);
@@ -79,9 +79,9 @@ public class MyLinkedListTest {
 
     @Test
     public void givenThreeNodes_WhenSearchingNodeInLinkedList_ShouldReturnNode() {
-        MyNode<Integer> myFirstNode = new MyNode<>(56);
-        MyNode<Integer> mySecondNode = new MyNode<>(30);
-        MyNode<Integer> myThirdNode = new MyNode<>(70);
+        MyNode myFirstNode = new MyNode<>(56);
+        MyNode mySecondNode = new MyNode<>(30);
+        MyNode myThirdNode = new MyNode<>(70);
         MyLinkedList myLinkedList = new MyLinkedList();
         myLinkedList.add(myFirstNode);
         myLinkedList.append(myThirdNode);
@@ -96,7 +96,7 @@ public class MyLinkedListTest {
         MyNode mySecondNode = new MyNode(30);
         MyNode myThirdNode = new MyNode(70);
         MyNode myFourthNode = new MyNode(40);
-        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
+        MyLinkedList myLinkedList = new MyLinkedList<>();
         myLinkedList.append(myFirstNode);
         myLinkedList.append(mySecondNode);
         myLinkedList.append(myThirdNode);
@@ -106,6 +106,43 @@ public class MyLinkedListTest {
                 myLinkedList.head.getNext().getNext().equals(myFourthNode) &&
                 myLinkedList.tail.equals(myThirdNode);
         Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenNode_WhenDeleted_ShouldReturnTrue() {
+        MyNode myFirstNode = new MyNode(56);
+        MyNode mySecondNode = new MyNode(30);
+        MyNode myThirdNode = new MyNode(40);
+        MyNode myFourthNode = new MyNode(70);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.append(myFourthNode);
+        myLinkedList.printMyNodes();
+        myLinkedList.popNode(40);
+        myLinkedList.printMyNodes();
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                myLinkedList.head.getNext().equals(mySecondNode) &&
+                myLinkedList.tail.equals(myFourthNode);
+        Assert.assertTrue(result);
+    }
+
+    @Test
+    public void givenNode_WhenDeleted_ShouldReturnSize() {
+        MyNode myFirstNode = new MyNode(56);
+        MyNode mySecondNode = new MyNode(30);
+        MyNode myThirdNode = new MyNode(40);
+        MyNode myFourthNode = new MyNode<>(70);
+        MyLinkedList myLinkedList = new MyLinkedList<>();
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.append(myFourthNode);
+        myLinkedList.printMyNodes();
+        myLinkedList.popNode(40);
+        myLinkedList.printMyNodes();
+        Assert.assertEquals(3, myLinkedList.size());
     }
 
 }
