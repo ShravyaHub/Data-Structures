@@ -1,20 +1,24 @@
 public class MyQueue {
-    private final MyLinkedList MyLinkedList;
+    private final MyLinkedList myLinkedList;
 
     public MyQueue() {
-        this.MyLinkedList = new MyLinkedList();
+        this.myLinkedList = new MyLinkedList();
     }
 
     public void enqueue(INode newNode) {
-        MyLinkedList.append(newNode);
+        myLinkedList.append(newNode);
     }
 
     public INode peek() {
-        return MyLinkedList.head;
+        return myLinkedList.head;
     }
 
     public void printQueue() {
-        MyLinkedList.printMyNodes();
+        myLinkedList.printMyNodes();
+    }
+
+    public INode Dequeue() {
+        return myLinkedList.popFirst();
     }
 
 }

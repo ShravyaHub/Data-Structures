@@ -21,4 +21,5 @@ public class MyStack<K extends Comparable<K>> {
     public void printStack() {
         myLinkedList.printMyNodes();
     }
+
 }
