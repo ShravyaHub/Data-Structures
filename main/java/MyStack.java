@@ -3,7 +3,7 @@ public class MyStack<K extends Comparable<K>> {
     private final MyLinkedList<K> myLinkedList;
 
     public MyStack() {
-        this.myLinkedList = new MyLinkedList<K>();
+        this.myLinkedList = new MyLinkedList();
     }
 
     public void push(INode newNode) {
