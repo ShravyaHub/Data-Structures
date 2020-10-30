@@ -90,4 +90,22 @@ public class MyLinkedListTest {
         Assert.assertEquals(mySecondNode, myLinkedList.searchElement(30));
     }
 
+    @Test
+    public void givenFourNodes_WhenInsertingFourthNodeInBetweenSecondAndThird_ShouldReturnTrue() {
+        MyNode myFirstNode = new MyNode(56);
+        MyNode mySecondNode = new MyNode(30);
+        MyNode myThirdNode = new MyNode(70);
+        MyNode myFourthNode = new MyNode(40);
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
+        myLinkedList.append(myFirstNode);
+        myLinkedList.append(mySecondNode);
+        myLinkedList.append(myThirdNode);
+        myLinkedList.insert(mySecondNode, myFourthNode);
+        boolean result = myLinkedList.head.equals(myFirstNode) &&
+                myLinkedList.head.getNext().equals(mySecondNode) &&
+                myLinkedList.head.getNext().getNext().equals(myFourthNode) &&
+                myLinkedList.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
+    }
+
 }
