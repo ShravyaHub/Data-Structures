@@ -145,4 +145,23 @@ public class MyLinkedListTest {
         Assert.assertEquals(3, myLinkedList.size());
     }
 
+    @Test
+    public void givenFourNodes_WhenAddedToSortedLinkedList_ShouldReturnSortedList() {
+        MyNode myFirstNode = new MyNode(56);
+        MyNode mySecondNode = new MyNode(30);
+        MyNode myThirdNode = new MyNode(70);
+        MyNode myFourthNode = new MyNode(40);
+        MyLinkedList myLinkedList = new MyLinkedList<>();
+        myLinkedList.addElementInSortedList(myFirstNode);
+        myLinkedList.addElementInSortedList(mySecondNode);
+        myLinkedList.addElementInSortedList(myThirdNode);
+        myLinkedList.addElementInSortedList(myFourthNode);
+        myLinkedList.printMyNodes();
+        boolean result = myLinkedList.head.equals(mySecondNode) &&
+                myLinkedList.head.getNext().equals(myFourthNode) &&
+                myLinkedList.head.getNext().getNext().equals(myFirstNode) &&
+                myLinkedList.tail.equals(myThirdNode);
+        Assert.assertTrue(result);
+    }
+
 }
