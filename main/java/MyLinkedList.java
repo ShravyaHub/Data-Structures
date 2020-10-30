@@ -1,4 +1,4 @@
-public class MyLinkedList<K> {
+public class MyLinkedList<K extends Comparable<K>> {
 
     INode tail;
     INode head;
@@ -88,6 +88,25 @@ public class MyLinkedList<K> {
             tempNode = tempNode.getNext();
         }
         return size;
+    }
+
+    public void addElementInSortedList(INode<K> newNode) {
+        INode<K> tempNode = head;
+        INode<K> prevNode = null;
+        while (tempNode != null && newNode.getKey().compareTo(tempNode.getKey()) > 0) {
+            prevNode = tempNode;
+            tempNode = tempNode.getNext();
+        }
+        if (prevNode == null) {
+            this.head = newNode;
+        } else {
+            prevNode.setNext(newNode);
+        }
+        newNode.setNext(tempNode);
+        while (tempNode!=null){
+            this.tail = tempNode;
+            tempNode = tempNode.getNext();
+        }
     }
 
     public void printMyNodes() {
