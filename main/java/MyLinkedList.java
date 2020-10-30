@@ -8,7 +8,7 @@ public class MyLinkedList<K extends Comparable<K>> {
         this.tail = null;
     }
 
-    public void add(MyNode newNode) {
+    public void add(INode newNode) {
         if(this.tail == null) {
             this.tail = newNode;
         }
