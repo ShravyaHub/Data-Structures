@@ -16,4 +16,18 @@ public class MyStackTest {
         myStack.printStack();
         Assert.assertEquals(myThirdNode, LastElement);
     }
+
+    @Test
+    public void givenThreeNodes_WhenPopped_ShouldReturnLastAddedNode() {
+        MyNode myFirstNode = new MyNode(70);
+        MyNode mySecondNode = new MyNode(30);
+        MyNode myThirdNode = new MyNode(56);
+        MyStack myStack = new MyStack();
+        myStack.push(myFirstNode);
+        myStack.push(mySecondNode);
+        myStack.push(myThirdNode);
+        INode poppedNode = myStack.pop();
+        myStack.printStack();
+        Assert.assertEquals(myThirdNode, poppedNode);
+    }
 }
