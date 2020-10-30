@@ -5,9 +5,9 @@ public class MyStackTest {
 
     @Test
     public void givenThreeNodes_WhenAddedToStack_ShouldReturnLastAddedNode() {
-        MyNode myFirstNode = new MyNode<>(70);
-        MyNode mySecondNode = new MyNode<>(30);
-        MyNode myThirdNode = new MyNode<>(56);
+        MyNode myFirstNode = new MyNode(70);
+        MyNode mySecondNode = new MyNode(30);
+        MyNode myThirdNode = new MyNode(56);
         MyStack myStack = new MyStack();
         myStack.push(myFirstNode);
         myStack.push(mySecondNode);
