@@ -56,14 +56,14 @@ public class MyLinkedList<K extends Comparable<K>> {
     }
 
     public INode searchElement(K key){
-        INode tempNode = head;
-        while (tempNode.getNext() != null && tempNode != null){
-            if(tempNode.getKey().equals(key)){
+        INode<K> tempNode = head;
+        while (tempNode != null) {
+            if (tempNode.getKey().equals(key)) {
                 return tempNode;
             }
             tempNode = tempNode.getNext();
         }
-        return tempNode;
+        return null;
     }
 
     public INode popNode(K key) {
@@ -121,5 +121,10 @@ public class MyLinkedList<K extends Comparable<K>> {
         }
         myNodes.append(tempNode.getKey());
         System.out.println(myNodes);
+    }
+
+    @Override
+    public String toString() {
+        return "MyLinkedListNodes{" + head + '}';
     }
 }
