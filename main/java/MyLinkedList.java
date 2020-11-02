@@ -1,3 +1,4 @@
+
 public class MyLinkedList<K extends Comparable<K>> {
 
     INode tail;
@@ -66,6 +67,14 @@ public class MyLinkedList<K extends Comparable<K>> {
         return null;
     }
 
+    public void pop(INode<K> node) {
+        INode<K> tempNode = head;
+        while (tempNode.getNext() != node) {
+            tempNode = tempNode.getNext();
+        }
+        tempNode.setNext(node.getNext());
+    }
+
     public INode popNode(K key) {
         INode prevNode = null;
         INode tempNode = head;
@@ -121,6 +130,24 @@ public class MyLinkedList<K extends Comparable<K>> {
         }
         myNodes.append(tempNode.getKey());
         System.out.println(myNodes);
+    }
+
+    public void deleteBySearch(K key) {
+        INode<K> searchResult = searchElement(key);
+        INode<K> temp = this.head;
+        if (temp.getNext() == null || searchResult.equals(temp))
+            popFirst();
+        else if (searchResult.equals(tail))
+            popLast();
+        else {
+            while (temp.getNext() != null) {
+                if (temp.getNext().equals(searchResult)) {
+                    temp.setNext(searchResult.getNext());
+                    break;
+                }
+                temp = temp.getNext();
+            }
+        }
     }
 
     @Override

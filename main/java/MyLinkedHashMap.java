@@ -44,4 +44,11 @@ public class MyLinkedHashMap<K extends Comparable, V> {
         }
 
     }
+
+    public void remove(K key) {
+        int index = this.getBucketIndex(key);
+        MyLinkedList myLinkedList = this.myBucketArray.get(index);
+        INode<K> tempNode = myLinkedList.searchElement(key);
+        myLinkedList.pop(tempNode);
+    }
 }
